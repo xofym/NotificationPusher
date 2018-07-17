@@ -2,3 +2,4 @@ bin
 vendor/
 web/
 .idea/
+cmd_push_android.sh
