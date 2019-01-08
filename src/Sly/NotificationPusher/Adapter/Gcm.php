@@ -143,6 +143,7 @@ class Gcm extends BaseAdapter
     {
         $data            = $message->getOptions();
         $data['message'] = $message->getText();
+        $mutableContent  = $message->getOption('mutable-content');
 
         $serviceMessage = new ServiceMessage();
         $serviceMessage->setRegistrationIds($tokens);
@@ -158,6 +159,7 @@ class Gcm extends BaseAdapter
 
         $serviceMessage->setData($data);
 
+        $serviceMessage->setMutableContent($mutableContent);
         $serviceMessage->setCollapseKey($this->getParameter('collapseKey'));
         $serviceMessage->setRestrictedPackageName($this->getParameter('restrictedPackageName'));
         $serviceMessage->setDelayWhileIdle($this->getParameter('delayWhileIdle', false));
