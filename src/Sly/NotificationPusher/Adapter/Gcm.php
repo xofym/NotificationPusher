@@ -144,7 +144,6 @@ class Gcm extends BaseAdapter
         $data            = $message->getOptions();
         $data['message'] = $message->getText();
         $mutableContent  = $message->getOption('mutable-content');
-        $category        = $message->getOption('category');
 
         $serviceMessage = new ServiceMessage();
         $serviceMessage->setRegistrationIds($tokens);
@@ -166,7 +165,6 @@ class Gcm extends BaseAdapter
         $serviceMessage->setDelayWhileIdle($this->getParameter('delayWhileIdle', false));
         $serviceMessage->setTimeToLive($this->getParameter('ttl', 600));
         $serviceMessage->setDryRun($this->getParameter('dryRun', false));
-        $serviceMessage->setClickAction($category);
 
         return $serviceMessage;
     }
